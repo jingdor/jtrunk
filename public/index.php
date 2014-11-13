@@ -13,23 +13,6 @@ $di->set('router', function () {
 
     $router->setDefaultModule("frontend");
 
-    $router->add("/login", array(
-        'module'     => 'backend',
-        'controller' => 'login',
-        'action'     => 'index',
-    ));
-
-    $router->add("/admin/products/:action", array(
-        'module'     => 'backend',
-        'controller' => 'products',
-        'action'     => 1,
-    ));
-
-    $router->add("/products/:action", array(
-        'controller' => 'products',
-        'action'     => 1,
-    ));
-
     return $router;
 });
 
@@ -42,11 +25,11 @@ try {
     $application->registerModules(
         array(
             'frontend' => array(
-                'className' => 'Multiple\Frontend\Module',
+                'className' => 'Frontend\Module',
                 'path'      => '../apps/frontend/Module.php',
             ),
             'backend'  => array(
-                'className' => 'Multiple\Backend\Module',
+                'className' => 'Backend\Module',
                 'path'      => '../apps/backend/Module.php',
             )
         )

@@ -1,9 +1,11 @@
 <?php
 
-namespace Multiple\Frontend;
+namespace Frontend;
+
 use Phalcon\Loader,
     Phalcon\Mvc\Dispatcher,
     Phalcon\Mvc\View,
+    Phalcon\Mvc\View\Engine\Volt,
     Phalcon\Mvc\ModuleDefinitionInterface;
 
 
@@ -20,8 +22,8 @@ class Module implements ModuleDefinitionInterface
 
         $loader->registerNamespaces(
             array(
-                'Multiple\Frontend\Controllers' => '../apps/Frontend/controllers/',
-                'Multiple\Frontend\Models'      => '../apps/Frontend/models/',
+                'Frontend\Controllers' => '../apps/frontend/controllers/',
+                'Frontend\Models'      => '../apps/frontend/models/',
             )
         );
 
@@ -37,18 +39,31 @@ class Module implements ModuleDefinitionInterface
         //Registering a dispatcher
         $di->set('dispatcher', function() {
             $dispatcher = new Dispatcher();
-            $dispatcher->setDefaultNamespace("Multiple\Frontend\Controllers");
+            $dispatcher->setDefaultNamespace("Frontend\Controllers");
             return $dispatcher;
         });
+	
 
+	$di->set('voltService', function($view, $di) {
+
+    	$volt = new Volt($view, $di);
+
+    	$volt->setOptions(array(
+        	"compiledPath" => "../cache/",
+        	"compiledExtension" => ".compiled"
+    	));
+
+    return $volt;
+	});
         //Registering the view component
         $di->set('view', function() {
             $view = new View();
             $view->setViewsDir('../apps/frontend/views/');
             //注册模板引擎
             $view->registerEngines(array(
-                ".volt" => 'Phalcon\Mvc\View\Engine\Volt'
-            ));
+                ".volt" =>"voltService"
+			));		
+           
             return $view;
         });
 
