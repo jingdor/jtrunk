@@ -5,25 +5,20 @@
 {% block meta %}{% endblock %}
 
 {{stylesheetLink("css/normalize.css")}}
-{{stylesheetLink("css/animate.css")}}
-{{stylesheetLink("css/1140.css")}}
-
-{% block link %}{% endblock %}
-
-
 {{stylesheetLink("css/all.css")}}
+{% block link %}{% endblock %}
 {{ javascript_include("js/jquery-2.1.1.min.js") }}
-{{ javascript_include("js/underscore-min.js") }}
-{{ javascript_include("js/backbone-min.js") }}
+{{ javascript_include("js/angular.min.js") }}
+{{ javascript_include("js/all.js") }}
 {% block script %}
 {% endblock %}
     </head>
     <body>
-    {{ partial("part/_header") }}
+{{ partial("part/_header") }}
     <div id="container">
         {% block content %}{% endblock %}
     </div>
-    {{ partial("part/_footer") }}
+{{ partial("part/_footer") }}
     </body>
   {{ javascript_include("js/all.js") }}  
 {% block style %}{% endblock %}

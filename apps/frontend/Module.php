@@ -12,9 +12,6 @@ use Phalcon\Loader,
 class Module implements ModuleDefinitionInterface
 {
 
-    /**
-     * Register a specific autoloader for the module
-     */
     public function registerAutoloaders()
     {
 
@@ -30,9 +27,7 @@ class Module implements ModuleDefinitionInterface
         $loader->register();
     }
 
-    /**
-     * Register specific services for the module
-     */
+
     public function registerServices($di)
     {
 
@@ -61,7 +56,7 @@ class Module implements ModuleDefinitionInterface
             $view->setViewsDir('../apps/frontend/views/');
             //注册模板引擎
             $view->registerEngines(array(
-                ".volt" =>"voltService"
+                ".html" =>"voltService"
 			));		
            
             return $view;
