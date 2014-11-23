@@ -4,16 +4,12 @@
         <title>{{title | default('title')}}</title>
 {% block meta %}{% endblock %}
 
-{{stylesheetLink("css/normalize.css")}}
 {{stylesheetLink("css/all.css")}}
+{{stylesheetLink("css/font-awesome.css")}}
 {% block link %}{% endblock %}
 {{ javascript_include("js/jquery-2.1.1.min.js") }}
-{{ javascript_include("js/angular.min.js") }}
-{{ javascript_include("js/angular-route.js") }}
 {{ javascript_include("js/all.js") }}
-{{ javascript_include("js/app.js") }}
-{% block script %}
-{% endblock %}
+{% block script %}{% endblock %}
     </head>
     <body>
 {{ partial("part/_header") }}

@@ -14,6 +14,7 @@ $di->set('router', function () {
     $router->setDefaultModule("frontend");
 
     return $router;
+
 });
 
 try {

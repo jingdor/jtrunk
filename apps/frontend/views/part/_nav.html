@@ -1,0 +1,43 @@
+<ul class="menu top-menu animated fadeInDown">
+	<li class="item" z-index><a href="javascript:;">MENU</a>
+
+	<ul class="downPop-menu"><li class="item">liunx</li><li class="item">mysql</li>
+	</ul>
+	</li>
+</ul>
+
+<ul class="menu top-menu animated fadeInDown right">
+	<li class="item"><i class="fa fa-user fa-lg"></i><a href="javascript:;">&nbsp;Login&nbsp;</a></li>
+</ul>
+<style type="text/css">
+
+	.top-menu{
+		font-family: "sans-serif";
+		display: inline-block;
+	}
+	.top-menu>.item{
+		padding-left: 10px;
+		border: 0px;
+		display: inline-block;
+	}
+	.top-menu>.item>a{
+		display: inline-block;
+		margin-top: 20px;
+		margin-bottom:20px;
+		text-decoration:none;
+		color: #000;
+	}
+	.downPop-menu{
+		display: none;
+		position: absolute;
+	}
+	.menu>.item:hover>.downPop-menu,.menu>.item:focus>.downPop-menu{
+		display: block;
+	}
+
+	.menu>.item:hover>.downPop-menu>.item{
+		padding: 0px;
+		margin: 10px 0px;
+	}
+</style>
+	
